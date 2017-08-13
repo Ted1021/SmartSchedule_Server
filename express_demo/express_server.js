@@ -33,8 +33,6 @@ app.get('/route', function(req, res){
     var ey = req.query.EY;
     var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
     
-    console.log(url);
-    
     console.log('start request');
     searchPubTransPathAJAX(sx, sy, ex, ey, res, apiKey);
 });
