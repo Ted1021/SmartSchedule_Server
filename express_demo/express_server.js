@@ -91,23 +91,25 @@ app.get('/topic/:id/:mode', function(req, res){
     res.send(id+' , '+mode);
 });
 
-function searchPubTransPathAJAX(xhr,apiKey) {
-	xhr = new XMLHttpRequest();
-	var url = 'https://api.odsay.com/api/searchPubTransPath?SX=126.9027279&SY=37.5349277&EX=126.9145430&EY=37.5499421&apiKey='+apiKey;
-	xhr.open("GET", url, true);
-	xhr.send();
-	xhr.onreadystatechange = function() {
 
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
-		}
-	}
-}
 
 app.get('/path', function(req, res){
     
     var xhr;
-    var apiKey = 'BO4mmi6JAPa+anu0O7e9qA
+    var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
+    
+    function searchPubTransPathAJAX(xhr,apiKey) {
+	   xhr = new XMLHttpRequest();
+	   var url = 'https://api.odsay.com/api/searchPubTransPath?SX=126.9027279&SY=37.5349277&EX=126.9145430&EY=37.5499421&apiKey='+apiKey;
+	   xhr.open("GET", url, true);
+	   xhr.send();
+	   xhr.onreadystatechange = function() {
+
+		  if (xhr.readyState == 4 && xhr.status == 200) {
+			 console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
+		  }
+	   }
+    }
     
     console.log('start request');
     searchPubTransPathAJAX(xhr, apiKey);
