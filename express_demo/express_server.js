@@ -19,7 +19,7 @@ app.get('/route', function(req, res){
 
             if (xhr.readyState == 4 && xhr.status == 200) {
                 console.log(">>>>>>>>> return from Odsay");
-    //            console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
+                console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
 
                 console.log(">>>>>>>>>>>>> get logic in my server")
                 res.send(JSON.parse(xhr.responseText));     
