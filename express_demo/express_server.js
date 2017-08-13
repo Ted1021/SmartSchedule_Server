@@ -27,13 +27,11 @@ app.get('/route', function(req, res){
         }
     }
 
-    var sx = parseFloat(req.query.SX);
-    var sy = parseFloat(req.query.SY);
-    var ex = parseFloat(req.query.EX);
-    var ey = parseFloat(req.query.EY);
+    var sx = req.query.SX;
+    var sy = req.query.SY;
+    var ex = req.query.EX;
+    var ey = req.query.EY;
     var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
-    
-    var url = 'https://api.odsay.com/api/searchPubTransPath?SX='+${sx}+'&SY='+sy+'&EX='+ex+'&EY='+ey+'&apiKey='+apiKey;
     
     console.log(url);
     
