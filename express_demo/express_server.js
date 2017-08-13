@@ -22,7 +22,8 @@ app.get('/route', function(req, res){
                 console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
 
                 console.log(">>>>>>>>>>>>> get logic in my server")
-                res.send(JSON.parse(xhr.responseText));     
+//                res.send(JSON.parse(xhr.responseText));  
+                res.json(JSON.parse(xhr.responseText));
               }
         }
     }
@@ -44,7 +45,8 @@ app.get('/message', function(req, res){
     JSON.stringify(result);
     
     console.log(JSON.stringify(result));
-    res.send(JSON.stringify(result));
+    res.json(JSON.stringify(result));
+//    res.send(JSON.stringify(result));
 });
 
 // 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
