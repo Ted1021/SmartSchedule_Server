@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 // 미들웨어
 app.use(express.static('public'));
