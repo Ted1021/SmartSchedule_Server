@@ -90,3 +90,26 @@ app.get('/topic/:id/:mode', function(req, res){
     
     res.send(id+' , '+mode);
 });
+
+app.get('/route', function(req, res){
+    
+    var sx = req.query.SX
+    var sy = req.query.SY;
+    var ex = req.query.EX
+    var ey = req.query.EY;
+        
+    console.log('SX = '+sx+' / SY = '+sy);
+    console.log('EX = '+ex+' / EY = '+ey);
+    
+    var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
+    
+    console.log('start request');
+    
+    res.send(sx);
+//    searchPubTransPathAJAX(res, apiKey, sx, sy, ex, ey);
+});
+
+
+app.listen(3000, function () {
+  console.log('>>>>>>>>>>> Server Start !!');
+});
