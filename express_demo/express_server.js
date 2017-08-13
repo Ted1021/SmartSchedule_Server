@@ -26,8 +26,10 @@ function searchPubTransPathAJAX(res, apiKey, sx, sy, ex, ey) {
 
 app.get('/route', function(req, res){
     
-    var sx = req.query.departX, sy = req.qeury.departY;
-    var ex = req.qeury.destX, ey = req.query.destY;
+    var sx = req.query.departX
+    var sy = req.qeury.departY;
+    var ex = req.qeury.destX
+    var ey = req.query.destY;
     
     console.log('departX = '+sx+' / departY = '+sy);
     console.log('destX = '+ex+' / destY = '+ey);
