@@ -107,9 +107,12 @@ function searchPubTransPathAJAX(xhr,apiKey) {
 app.get('/path', function(req, res){
     
     var xhr;
-    var apiKey = 'BO4mmi6JAPa+anu0O7e9qA';
+    var apiKey = 'BO4mmi6JAPa+anu0O7e9qA
     
+    console.log('start request');
     searchPubTransPathAJAX(xhr, apiKey);
+    
+    console.log(JSON.parse(xhr.responseText));
     res.send(JSON.parse(xhr.responseText));  
 });
 
