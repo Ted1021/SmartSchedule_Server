@@ -6,7 +6,7 @@ var http = require('http');
 app.use(express.static('public'));
 
 // 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
-app.listen(3000, function () {
+app.listen(80, function () {
   console.log('Example app listening on port 3000!');
 });
 
