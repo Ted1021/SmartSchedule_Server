@@ -107,6 +107,7 @@ app.get('/path', function(req, res){
 	   xhr.onreadystatechange = function() {
 
 		  if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log(">>>>>>>>> return from Odsay");
 			 console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
 		  }
 	   }
@@ -115,13 +116,14 @@ app.get('/path', function(req, res){
     console.log('start request');
     searchPubTransPathAJAX(xhr, apiKey);
     
+    console.log(">>>>>>>>>>>>> get logic in my server")
     console.log(JSON.parse(xhr.responseText));
     res.send(JSON.parse(xhr.responseText));  
 });
 
 // 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
 app.listen(80, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('>>>>>>>>>>> Server Start !!');
 });
 
 
