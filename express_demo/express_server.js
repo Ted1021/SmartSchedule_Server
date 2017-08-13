@@ -38,7 +38,7 @@ app.get('/route', function(req, res){
     console.log(url);
     
     console.log('start request');
-    searchPubTransPathAJAX(req, res, apiKey);
+    searchPubTransPathAJAX(sx, sy, ex, ey, res, apiKey);
 });
 
 // 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
