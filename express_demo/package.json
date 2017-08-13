@@ -16,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.4",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {}
 }
