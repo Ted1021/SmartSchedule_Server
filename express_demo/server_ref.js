@@ -93,11 +93,11 @@ app.get('/topic/:id/:mode', function(req, res){
 
 app.get('/route', function(req, res){
     
-    var sx = req.query.SX
+    var sx = req.query.SX;
     var sy = req.query.SY;
-    var ex = req.query.EX
+    var ex = req.query.EX;
     var ey = req.query.EY;
-        
+    
     console.log('SX = '+sx+' / SY = '+sy);
     console.log('EX = '+ex+' / EY = '+ey);
     
