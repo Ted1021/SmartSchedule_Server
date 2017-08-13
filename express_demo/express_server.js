@@ -3,38 +3,39 @@ var app = express();
 var http = require('http');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-function searchPubTransPathAJAX(req, res, apiKey) {
+
+app.get('/route', function(req, res){
     
+    function searchPubTransPathAJAX(sx, sy, ex, ey, res, apiKey) {
+    
+        var xhr = new XMLHttpRequest();
+        var url = 'https://api.odsay.com/api/searchPubTransPath?SX='+sx+'&SY='+sy+'&EX='+ex+'&EY='+ey+'&apiKey='+apiKey;
+
+        console.log(url);
+
+        xhr.open("GET", url, true);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(">>>>>>>>> return from Odsay");
+    //            console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
+
+                console.log(">>>>>>>>>>>>> get logic in my server")
+                res.send(JSON.parse(xhr.responseText));     
+              }
+        }
+    }
+
     var sx = req.query.SX
     var sy = req.query.SY;
     var ex = req.query.EX
     var ey = req.query.EY;
-    
-    var xhr = new XMLHttpRequest();
-    var url = 'https://api.odsay.com/api/searchPubTransPath?SX='+sx+'&SY='+sy+'&EX='+ex+'&EY='+ey+'&apiKey='+apiKey;
-
-    console.log(url);
-    
-    xhr.open("GET", url, true);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(">>>>>>>>> return from Odsay");
-//            console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
-            
-            console.log(">>>>>>>>>>>>> get logic in my server")
-            res.send(JSON.parse(xhr.responseText));     
-		  }
-    }
-}
-
-app.get('/route', function(req, res){
-    
-    console.log('SX = '+sx+' / SY = '+sy);
-    console.log('EX = '+ex+' / EY = '+ey);
-    
     var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
+    
+    var url = 'https://api.odsay.com/api/searchPubTransPath?SX='+sx+'&SY='+sy+'&EX='+ex+'&EY='+ey+'&apiKey='+apiKey;
+    
+    console.log(url);
     
     console.log('start request');
     searchPubTransPathAJAX(req, res, apiKey);
