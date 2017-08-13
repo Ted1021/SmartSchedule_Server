@@ -5,11 +5,6 @@ var http = require('http');
 // 미들웨어
 app.use(express.static('public'));
 
-// 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
-app.listen(80, function () {
-  console.log('Example app listening on port 3000!');
-});
-
 // 얘를 라우터라고 하며, 여기서 일어나는 동작을 라우팅이라고 한다.
 // router1 (localhost/) <- 요청 주소
 app.get('/', function (req, res) {
@@ -96,10 +91,32 @@ app.get('/topic/:id/:mode', function(req, res){
     res.send(id+' , '+mode);
 });
 
+function searchPubTransPathAJAX(xhr,apiKey) {
+	xhr = new XMLHttpRequest();
+	var url = 'https://api.odsay.com/api/searchPubTransPath?SX=126.9027279&SY=37.5349277&EX=126.9145430&EY=37.5499421&apiKey='+apiKey;
+	xhr.open("GET", url, true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
 
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
+		}
+	}
+}
 
+app.get('/path', function(req, res){
+    
+    var xhr;
+    var apiKey = 'BO4mmi6JAPa+anu0O7e9qA';
+    
+    searchPubTransPathAJAX(xhr, apiKey);
+    res.send(JSON.parse(xhr.responseText));  
+});
 
-
+// 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
+app.listen(80, function () {
+  console.log('Example app listening on port 3000!');
+});
 
 
 
