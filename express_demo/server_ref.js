@@ -93,6 +93,10 @@ app.get('/topic/:id/:mode', function(req, res){
 
 app.get('/route', function(req, res){
     
+    var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
+    
+    console.log('start request');
+    
     var sx = req.query.SX;
     var sy = req.query.SY;
     var ex = req.query.EX;
@@ -101,12 +105,7 @@ app.get('/route', function(req, res){
     console.log('SX = '+sx+' / SY = '+sy);
     console.log('EX = '+ex+' / EY = '+ey);
     
-    var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
-    
-    console.log('start request');
-    
-    res.send(sx);
-//    searchPubTransPathAJAX(res, apiKey, sx, sy, ex, ey);
+    res.send(sx+"/"+sy+"/"+ex+"/"+ey);
 });
 
 
