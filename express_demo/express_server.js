@@ -16,7 +16,7 @@ app.get('/route', function(req, res){
     
     var xhr = new XMLHttpRequest();
     var url = 'https://api.odsay.com/api/searchPubTransPath?SX='+sx+'&SY='+sy+'&EX='+ex+'&EY='+ey+'&apiKey='+apiKey;
-
+    
     console.log(url);
 
     xhr.open("GET", url, true);
@@ -28,7 +28,6 @@ app.get('/route', function(req, res){
             console.log( xhr.responseText ); // <- xhr.responseText 로 결과를 가져올 수 있음
 
             console.log(">>>>>>>>>>>>> get logic in my server")
-            res.writeHead(200, {'content-Type':'application/json'});
             res.json(JSON.parse(xhr.responseText));
         }
     }
@@ -38,11 +37,9 @@ app.get('/message', function(req, res){
     
     var result = new Object();
     result.message = 'go home';
-    JSON.stringify(result);
     
     console.log(JSON.stringify(result));
-    res.writeHead(200, {'content-Type':'application/json'});
-    res.json(JSON.stringify(result));
+    res.json(200, result);
 });
 
 // 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.

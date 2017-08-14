@@ -94,7 +94,6 @@ app.get('/topic/:id/:mode', function(req, res){
 app.get('/route', function(req, res){
     
     var apiKey = 'bFNbGwjMxjtTaiMEroskKw';
-    
     console.log('start request');
     
     var sx = req.query.SX;
@@ -105,7 +104,14 @@ app.get('/route', function(req, res){
     console.log('SX = '+sx+' / SY = '+sy);
     console.log('EX = '+ex+' / EY = '+ey);
     
-    res.send(sx+"/"+sy+"/"+ex+"/"+ey);
+    var result = new Object();
+    
+    result.sx = sx;
+    result.sy = sy;
+    result.ex = ex;
+    result.ey = ey;
+    
+    res.json(200, result);
 });
 
 
