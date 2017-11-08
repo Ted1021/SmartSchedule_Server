@@ -35,7 +35,7 @@ app.get('/route', function(req, res){
 app.get('/message', function(req, res){
     
     var result = new Object();
-    result.message = 'go home';
+    result.message = req;
     
     console.log(JSON.stringify(result));
     res.json(200, result);
