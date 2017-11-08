@@ -35,14 +35,14 @@ app.get('/route', function(req, res){
 app.get('/message', function(req, res){
     
     var result = new Object();
-    result.message = req;
+    result.message = "Asdasd ";
     
     console.log(JSON.stringify(result));
     res.json(200, result);
 });
 
 // 서버 활성화 설정해 놓은 port 와 hostName 의 주소로 들어오는 클라이언트들을 감지한다.
-app.listen(80, function () {
+app.listen(8000, function () {
   console.log('>>>>>>>>>>> Server Start !!');
 });
 
